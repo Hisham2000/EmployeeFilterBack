@@ -36,7 +36,7 @@ public class SecurityConfigure {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/login", "/api/login/oauth2", "api/auth/*", "api/auth/login", "/login/**","/api/auth/login/**", "/api/vaccation/type/all", "/api/gettokendate",
+                        .requestMatchers("/auth/login", "/api/login/oauth2", "api/auth/*", "api/auth/login", "/login/**","/api/auth/login/**", "/api/vaccation/type/all", "/api/gettokendate",
                                 "/api/auth/**", "/api/auth/*", "/api/category/all", "/api/subcategory/{cat_id}",
                                 "/swagger-ui/**", "/swagger-ui/*", "api/swagger-ui/index.html", "/swagger-ui.html", "*/images/**", "*/images/*", "*/images/2.JPG", "/imagess/**",
                                 "/api/user/image/save", "api/product/getImage/**",  "api/product/getImage/*", "/api/v1/auth/**",
