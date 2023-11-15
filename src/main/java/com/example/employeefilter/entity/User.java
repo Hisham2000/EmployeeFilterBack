@@ -40,6 +40,8 @@ public class User implements UserDetails {
     @Column(name = "job_title")
     private String jobTitle;
     private Boolean status;
+    @Column(name="is_deleted")
+    private Boolean isDeleted;
 
 
     @JsonIgnore
