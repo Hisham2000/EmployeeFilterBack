@@ -36,10 +36,10 @@ public class SecurityConfigure {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/login", "/api/login/oauth2", "api/auth/*", "api/auth/login", "/login/**","/api/auth/login/**", "/api/vaccation/type/all", "/api/gettokendate",
-                                "/api/auth/**", "/api/auth/*", "/api/category/all", "/api/subcategory/{cat_id}",
+                        .requestMatchers("/auth/login",  "api/auth/login", "/login/**","/api/auth/login/**",
+                                "/api/auth/**", "/api/auth/*","api/auth/reset_password", "auth/reset_password",
                                 "/swagger-ui/**", "/swagger-ui/*", "api/swagger-ui/index.html", "/swagger-ui.html", "*/images/**", "*/images/*", "*/images/2.JPG", "/imagess/**",
-                                "/api/user/image/save", "api/product/getImage/**",  "api/product/getImage/*", "/api/v1/auth/**",
+                                "/api/v1/auth/**",
                                 "/v2/api-docs",
                                 "/v3/api-docs",
                                 "/v3/api-docs/**",
@@ -50,8 +50,6 @@ public class SecurityConfigure {
                                 "/swagger-ui/**",
                                 "/webjars/**",
                                 "/swagger-ui.html",
-                                "/api/product/getForGuest",
-                                "/api/product/image/save", "/api/product/image/get",
                                 "/actuator/**"
 
                         ).permitAll()
