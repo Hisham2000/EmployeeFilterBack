@@ -1,12 +1,12 @@
 package com.example.employeefilter.controller;
 
+import com.example.employeefilter.dto.UpdateUserDto;
+import com.example.employeefilter.entity.User;
 import com.example.employeefilter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -18,5 +18,12 @@ public class UserController {
     @GetMapping("/all")
     public ResponseEntity getAllUsers(){
         return ResponseEntity.ok(userService.getAll());
+    }
+
+    @PostMapping("/update")
+    @Secured("Manager")
+    public ResponseEntity updateUser(@RequestBody UpdateUserDto updateUserDto)
+    {
+        return ResponseEntity.ok(userService.update(updateUserDto));
     }
 }
